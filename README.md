@@ -19,7 +19,7 @@
 ## Planning - Dropdown Menu
 
 - I think following an observer pattern might be a good pattern for a modular, reusable menu drop-down. Maybe an interface pattern instead? I don't know yet.
-- The menu that I like most is the menu that collapses dynamically into the `more` element as the screen size decreases. Probably also the hardest to implement. Sigh.  
+- The menu that I like most is the menu that collapses dynamically into the `more` element as the screen size decreases.
   - Here is the example - Progressively collapsing menu from <https://marvelapp.com/blog/hamburger-menu-alternatives-mobile-navigation/>
 
     ![Image of collapsing menu][def]
