@@ -22,6 +22,10 @@
 - The menu that I like most is the menu that collapses dynamically into the `more` element as the screen size decreases. Probably also the hardest to implement. Sigh.  
   - Here is the example - Progressively collapsing menu from <https://marvelapp.com/blog/hamburger-menu-alternatives-mobile-navigation/>
 
-    ![](src/2023-03-06-09-20-31.png)
+    ![Image of collapsing menu][def]
 
 - Going to build the modules and add them to my Webpack template repo for future use. I will have to research best practices on that. I know the lesson suggests that I publish the modules to npm, but I don't think I'm ready for that yet. I want more experience under my belt before throwing things out there that random people might use in their projects.  I am reminded of the incident when part of the internet broke when some package that did some crazy simple task in js was removed from npm by the creator.
+
+- I think I'll start with the simplest version of the menu and then add the progressive collapsing feature later. I want to ensure I nail the flexbox implementation as flexbox tends to perform well regarding items that exist on the same axis.
+
+[def]: src/2023-03-06-09-20-31.png
