@@ -2,4 +2,4 @@
 import menu from './menuItem';
 import toggle from './toggleClickedElement';
 
-// the anchor element has .nav-list as a class
+// the anchor ul element has .nav-list as a class
