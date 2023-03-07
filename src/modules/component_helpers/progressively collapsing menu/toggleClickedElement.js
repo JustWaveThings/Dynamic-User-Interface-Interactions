@@ -21,11 +21,3 @@ const ToggleClickedElement = (() => {
 })();
 
 export default ToggleClickedElement;
-
-/* how to use this module 
-
-const headerMenu = MenuDropdown.init('#dropdown');  or whatever selector you need. 
-
-If you need to remove the event listener, you can call headermenu.destroy();
-
-*/
