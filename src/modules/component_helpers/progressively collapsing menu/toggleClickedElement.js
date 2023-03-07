@@ -1,21 +1,53 @@
 // for adding and removing event listeners to the menu dropdown.  On click, the menu dropdown will toggle class between having an 'active' class and removing the 'active' class.
 
 const ToggleClickedElement = (() => {
-	// private
 	let targetElement;
 
-	const toggleElement = () => {
-		targetElement.classList.toggle('active');
+	const removeActiveClassFromAllElements = () => {
+		targetElement.forEach((element) => {
+			element.classList.remove('active');
+		});
 	};
 
-	// public
+	const clickOutsideElement = (e) => {
+		if (
+			!e.target.closest('.nav.item') &&
+			!e.target.matches('.nav.item')
+		) {
+			removeActiveClassFromAllElements();
+		}
+	};
+
+	const closeMenuWhenClickOutside = () => {
+		document.addEventListener('click', clickOutsideElement);
+	};
+
+	const addActiveClassToSingleElement = (e) => {
+		removeActiveClassFromAllElements();
+		e.currentTarget.classList.add('active');
+		console.log(e.target.textContent, ' - menu item clicked');
+	};
+
 	return {
 		init: (targetSelector) => {
-			targetElement = document.querySelector(targetSelector);
-			targetElement.addEventListener('click', toggleDropdown);
+			targetElement = document.querySelectorAll(targetSelector);
+
+			targetElement.forEach((element) => {
+				element.addEventListener(
+					'click',
+					addActiveClassToSingleElement
+				);
+			});
+			closeMenuWhenClickOutside();
 		},
 		destroy: () => {
-			targetElement.removeEventListener('click', toggleDropdown);
+			targetElement.forEach((element) => {
+				element.removeEventListener(
+					'click',
+					addActiveClassToSingleElement
+				);
+				element.removeEventListener('click', clickOutsideElement);
+			});
 		},
 	};
 })();

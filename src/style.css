@@ -69,6 +69,7 @@ li {
 }
 
 .nav.item {
+	display: flex;
 	flex-basis: 12rem;
 	text-align: center;
 	flex-shrink: 0;
@@ -76,6 +77,10 @@ li {
 	background-color: var(--accent-color);
 	color: var(--text-color-light);
 	position: relative;
+}
+
+.nav-text {
+	flex: 1;
 }
 
 .nav .item:hover {
@@ -93,17 +98,28 @@ li {
 
 .sub-nav {
 	visibility: hidden;
-	display: block;
-	position: absolute;
+	display: flex;
+	flex-direction: column;
 	top: 4rem;
+	position: absolute;
+
 	background-color: var(--accent-color);
 	color: var(--text-color-light);
 	opacity: 0.9;
 }
+
+.sub-li:hover {
+	background-color: var(--highlight-color);
+}
+
 .sub-span {
 	display: block;
 	padding: 0.2rem;
 	opacity: 1;
+}
+
+.active > .sub-nav {
+	visibility: visible;
 }
 
 .container {
