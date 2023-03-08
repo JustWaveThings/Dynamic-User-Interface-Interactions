@@ -14,6 +14,8 @@ const ToggleClickedElement = (() => {
 			!e.target.closest('.nav.item') &&
 			!e.target.matches('.nav.item')
 		) {
+			console.log(e.target.closest('.nav.item'), 'e.target.closest');
+			console.log(e.target.matches('.nav.item'), 'e.target.matches');
 			removeActiveClassFromAllElements();
 		}
 	};
@@ -25,7 +27,7 @@ const ToggleClickedElement = (() => {
 	const addActiveClassToSingleElement = (e) => {
 		removeActiveClassFromAllElements();
 		e.currentTarget.classList.add('active');
-		console.log(e.target.textContent, ' - menu item clicked');
+		console.log(e.target, ' - item clicked');
 	};
 
 	return {
