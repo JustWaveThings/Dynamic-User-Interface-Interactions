@@ -1,9 +1,9 @@
 const ImageMakerFactory = (
 	src,
 	altTag,
-	appenderClass,
 	width,
-	height
+	height,
+	appenderClass
 ) => {
 	// 1. added image as a parameter
 	const addAttrs = (image) => {
@@ -11,10 +11,10 @@ const ImageMakerFactory = (
 		const img = image;
 		img.src = src;
 		img.alt = altTag;
-		if (width !== undefined) img.width = width;
-		if (width === undefined) img.width = 800;
-		if (height !== undefined) img.height = height;
-		if (height === undefined) img.height = 500;
+		if (width) img.width = width;
+		if (!width) img.width = 800;
+		if (height) img.height = height;
+		if (!height) img.height = 500;
 	};
 
 	// eslint-disable-next-line consistent-return
