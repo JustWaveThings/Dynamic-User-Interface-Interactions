@@ -8,13 +8,12 @@ import cat7 from './images_for_slider/7.jpg';
 import cat8 from './images_for_slider/8.jpg';
 import { appendImage, createImage } from './createImage';
 
-const cats = [cat1, cat2, cat3, cat4, cat5, cat6, cat7, cat8];
+export const cats = [cat1, cat2, cat3, cat4, cat5, cat6, cat7, cat8];
 
-const createCats = () => {
-	cats.forEach((cat) => {
-		const catImage = createImage(cat, 'image of another cat');
+export const createCats = () => {
+	cats.forEach((cat, index) => {
+		const catImage = createImage(cat, 'image of cat');
+		catImage.dataset.imageIndex = index;
 		appendImage(catImage);
 	});
 };
-
-export default createCats;
