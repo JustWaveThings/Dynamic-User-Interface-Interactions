@@ -20,13 +20,14 @@ myContainer.appendChild(myImage);
  */
 
 const ImageManager = (src, altTag, appenderClass, width, height) => {
-	const addAttrs = () => {
+	const addAttrs = (image) => {
+		const img = image;
 		img.src = src;
 		img.alt = altTag;
 		if (width !== undefined) img.width = width;
-		if (width == undefined) img.width = 800;
+		if (width === undefined) img.width = 800;
 		if (height !== undefined) img.height = height;
-		if (height == undefined) img.height = 500;
+		if (height === undefined) img.height = 500;
 	};
 
 	// eslint-disable-next-line consistent-return
