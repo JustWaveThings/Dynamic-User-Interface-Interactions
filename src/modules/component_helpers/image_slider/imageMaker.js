@@ -1,4 +1,6 @@
-const ImageMakerFactory = (
+// keeping for posterity, but not the right of a factory function
+
+/* const ImageMakerFactory = (
 	src,
 	altTag,
 	width,
@@ -40,3 +42,4 @@ const ImageMakerFactory = (
 };
 
 export default ImageMakerFactory;
+ */
