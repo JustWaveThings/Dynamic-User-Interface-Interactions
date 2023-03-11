@@ -1,7 +1,8 @@
-// what I want to do is create a reusuable factory function that takes in what the container will append to, the image itself, the image source, the image attributes and outputs an image object that can be used to display all the images processed by the factory function
-
-const imageManager = (src, altTag, appenderClass, width, height) => {
-	const addAttrs = () => {
+const ImageManager = (src, altTag, appenderClass, width, height) => {
+	// 1. added image as a parameter
+	const addAttrs = (image) => {
+		// 2. declared img as a variable within this function and set it to the parameter 'image'
+		const img = image;
 		img.src = src;
 		img.alt = altTag;
 		if (width !== undefined) img.width = width;
@@ -20,7 +21,7 @@ const imageManager = (src, altTag, appenderClass, width, height) => {
 		}
 	};
 
-	const imageObject = () => {
+	const createImage = () => {
 		const img = new Image();
 		addAttrs(img);
 		appendTo().appendChild(img);
@@ -28,8 +29,8 @@ const imageManager = (src, altTag, appenderClass, width, height) => {
 	};
 
 	return {
-		image: imageObject,
+		createImage,
 	};
 };
 
-export default imageManager;
+export default ImageManager;
