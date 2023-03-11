@@ -1,4 +1,10 @@
-const ImageManager = (src, altTag, appenderClass, width, height) => {
+const ImageMakerFactory = (
+	src,
+	altTag,
+	appenderClass,
+	width,
+	height
+) => {
 	// 1. added image as a parameter
 	const addAttrs = (image) => {
 		// 2. declared img as a variable within this function and set it to the parameter 'image'
@@ -33,4 +39,4 @@ const ImageManager = (src, altTag, appenderClass, width, height) => {
 	};
 };
 
-export default ImageManager;
+export default ImageMakerFactory;
