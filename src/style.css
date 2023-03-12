@@ -160,7 +160,7 @@ li {
 .img-slider-container {
 	display: flex;
 	position: absolute;
-	top: 50%;
+	
 	left: 0%;
 	transform: translate(-50%, -50%);
 }
@@ -170,6 +170,15 @@ li {
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
+}
+
+.slider-images-of-cats {
+	display: none;
+}
+
+.slider-images-of-cats.active-image{
+	display: flex;
+	position: absolute;
 }
 
 button {
@@ -188,7 +197,7 @@ button:hover {
 	transform: scale(1.5);
 }
 button.active {
-	transform: scale(1.1);
+	transform: scale(1.5);
 }
 
 
