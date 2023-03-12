@@ -21,6 +21,7 @@ import sliderInterfaceContainer from "./sliderInterfaceContainer"
 
 
 function setActive(index) {
+    console.log(index)
     const buttons = document.querySelectorAll('.nav-slider-position-indicator-buttons')
     const images = document.querySelectorAll('.slider-images-of-cats')
     buttons.forEach((button) => {
@@ -34,22 +35,39 @@ function setActive(index) {
   }
 
   function navArrowAction(arrow){
-    console.log(arrow)
+    
+    const catListLength = document.querySelectorAll('.slider-images-of-cats').length-1
+    
     let currentActiveIndex = document.querySelector('.active-slider').dataset.navIndex
+    
     console.log(currentActiveIndex)
-    if (arrow === "slider-reverse"){
-        setActive(--currentActiveIndex)
+    
+    if (arrow === "slider-reverse" ){
+        if (currentActiveIndex === '0'){
+            
+            setActive(catListLength)     
+        } else {
+            setActive(currentActiveIndex -1)
+        }   
     }
+
     if (arrow === "slider-forward"){
-        setActive(++currentActiveIndex)
-    }
+        console.log(catListLength)
+        if(+currentActiveIndex === catListLength){
+            setActive('0')
+        } else {
+            setActive(++currentActiveIndex)
+        }
+    }   
+    
 
      // 1 I need to know what index has the active class (done), and then either increment or decrement by one based on target, and pass that as the parameter to setActive.   Done !
      
      // NOW WORKING ON -  2 Also the edge case where we increment past the last index, or decrement past 0.  
 
      /*   What are my options  ---  
-     
+     NOW WORKING ON --  Works, just trying to not hardcode the end of the array value.
+        // hardcode end of array for now 
      on the reverse button click, check if the current index is 0, if it is, instead trying to go to -1, have it go to the last index of the array
 
      on the forward click, if the index is at the last index of the array, go to zero.
@@ -73,7 +91,7 @@ sliderNavContainer.addEventListener('click', (e)=> {
         navArrowAction(arrow)
         return 
     }
-    console.log(e.target.dataset.navIndex)  
+    // console.log(e.target.dataset.navIndex)  
     const index = e.target.dataset.navIndex 
     
     setActive(index)
