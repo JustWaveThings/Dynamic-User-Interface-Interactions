@@ -19,6 +19,7 @@ function sliderInterfaceContainer() {
 	cats.forEach((_, index) => {
 		const imageIndex = document.createElement('button');
 		imageIndex.dataset.navIndex = index;
+		imageIndex.classList.add('nav-slider-position-indicator-buttons')
 		imageIndex.textContent = ''; // replace with image
 		sliderInterface.appendChild(imageIndex);
 	});
