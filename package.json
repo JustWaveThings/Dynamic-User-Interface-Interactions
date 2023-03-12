@@ -8,6 +8,8 @@
 		"build": "webpack",
 		"watch": "webpack --watch",
 		"start": "webpack serve --open",
+		"startdock": "webpack serve --progress --port 8080",
+
 		"gh-deploy": "git push origin && git subtree push --prefix dist origin gh-pages2",
 		"gh-deploy-init": "git push origin && git subtree push --prefix dist origin gh-pages"
 	},
