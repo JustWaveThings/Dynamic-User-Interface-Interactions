@@ -6,18 +6,18 @@ function sliderInterfaceContainer() {
 
 	const leftArrow = document.createElement('button');
 	leftArrow.classList.add('left-arrow');
-	leftArrow.textContent = '<';
+	leftArrow.textContent = '<';// replace with image 
 
 	const rightArrow = document.createElement('button');
 	rightArrow.classList.add('right-arrow');
-	rightArrow.textContent = '>';
+	rightArrow.textContent = '>'; // replace with image 
 
 	sliderInterface.appendChild(leftArrow);
 
 	cats.forEach((_, index) => {
 		const imageIndex = document.createElement('button');
 		imageIndex.dataset.navIndex = index;
-		imageIndex.textContent = 'O'; // replace with image
+		imageIndex.textContent = ''; // replace with image
 		sliderInterface.appendChild(imageIndex);
 	});
 
