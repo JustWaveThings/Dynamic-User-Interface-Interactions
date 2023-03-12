@@ -9,7 +9,8 @@ import sliderInterfaceContainer from "./sliderInterfaceContainer"
  
 */
 
-function test() {
+// #1 
+function sliderController() {
 
 const sliderNavContainer = document.querySelector('.slider-interface-nav')
 
@@ -20,4 +21,10 @@ sliderNavContainer.addEventListener('click', (e)=> {
 })
 
 }
-export default test
+
+
+// #2 
+
+
+
+export default sliderController
