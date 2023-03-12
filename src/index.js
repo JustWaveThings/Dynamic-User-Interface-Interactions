@@ -2,7 +2,7 @@ import './style.css';
 import toggle from './modules/component_helpers/progressively collapsing menu/toggleClickedElement';
 import { createCats } from './modules/component_helpers/image_slider/cats';
 import sliderInterfaceContainer from './modules/component_helpers/image_slider/sliderInterfaceContainer';
-import sliderController from './modules/component_helpers/image_slider/sliderController';
+import sliderController, {setActive, sliderNavAdvance} from './modules/component_helpers/image_slider/sliderController';
 
 
 toggle.init('.nav.item');
@@ -14,3 +14,5 @@ main.appendChild(sliderInterfaceContainer());
 
 
 sliderController();
+setActive(5)
+sliderNavAdvance()

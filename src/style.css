@@ -189,14 +189,14 @@ button {
 	border: none;
 	border-radius: 5rem;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.6);
-	transition: transform 350ms ease-in-out;
+	transition: transform  350ms cubic-bezier(0, 2.47, 0.38, 0.91);
 }
 
 button:hover {
 	background-color: var(--highlight-color);
 	transform: scale(1.5);
 }
-button.active {
+button.active-slider {
 	transform: scale(1.5);
 }
 
