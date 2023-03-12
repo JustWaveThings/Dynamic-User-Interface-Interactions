@@ -14,6 +14,7 @@ export const createCats = () => {
 	cats.forEach((cat, index) => {
 		const catImage = createImage(cat, 'image of cat');
 		catImage.dataset.imageIndex = index;
+		catImage.classList.add('slider-images-of-cats')
 		appendImage(catImage);
 	});
 };
