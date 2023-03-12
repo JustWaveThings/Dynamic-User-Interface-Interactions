@@ -38,7 +38,7 @@ function setActive(index) {
     let currentActiveIndex = document.querySelector('.active-slider').dataset.navIndex
     console.log(currentActiveIndex)
     if (arrow === "slider-reverse"){
-        setActive(currentActiveIndex - 1)
+        setActive(--currentActiveIndex)
     }
     if (arrow === "slider-forward"){
         setActive(++currentActiveIndex)
@@ -46,7 +46,15 @@ function setActive(index) {
 
      // 1 I need to know what index has the active class (done), and then either increment or decrement by one based on target, and pass that as the parameter to setActive.   Done !
      
-     // 2 Also the edge case where we increment past the last index, or decrement past 0.  
+     // NOW WORKING ON -  2 Also the edge case where we increment past the last index, or decrement past 0.  
+
+     /*   What are my options  ---  
+     
+     on the reverse button click, check if the current index is 0, if it is, instead trying to go to -1, have it go to the last index of the array
+
+     on the forward click, if the index is at the last index of the array, go to zero.
+     
+     */
 
 
 }
