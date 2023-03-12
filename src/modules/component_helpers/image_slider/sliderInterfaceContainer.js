@@ -6,12 +6,12 @@ function sliderInterfaceContainer() {
 
 	const leftArrow = document.createElement('button');
 	leftArrow.classList.add('left-arrow');
-	leftArrow.dataset.navIndex = 'slider-reverse';
+	leftArrow.dataset.navArrow = 'slider-reverse';
 	leftArrow.textContent = '<';// replace with image 
 
 	const rightArrow = document.createElement('button');
 	rightArrow.classList.add('right-arrow');
-	rightArrow.dataset.navIndex = 'slider-forward';
+	rightArrow.dataset.navArrow = 'slider-forward';
 	rightArrow.textContent = '>'; // replace with image 
 
 	sliderInterface.appendChild(leftArrow);
