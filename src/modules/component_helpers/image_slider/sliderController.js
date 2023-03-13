@@ -116,3 +116,4 @@ export function  sliderNavAdvance() {
 
 export default sliderController
 
+// this version as of 3 / 13 / 23 the autoadvance and the nav forward back buttons work... 
