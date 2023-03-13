@@ -10,8 +10,8 @@
 		"start": "webpack serve --open",
 		"startdock": "webpack serve --progress --port 8080",
 
-		"gh-deploy": "git push origin && git subtree push --prefix dist origin gh-pages",
-		"gh-deploy-init": "git push origin && git subtree push --prefix dist origin gh-pages"
+		"gh-deploy": "git push origin && git subtree push --prefix dist origin gh-pages3",
+		"gh-deploy-init": "git push origin && git subtree push --prefix dist origin gh-pages4"
 	},
 	"repository": {
 		"type": "git",
