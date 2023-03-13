@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable no-plusplus */
 import sliderInterfaceContainer from "./sliderInterfaceContainer"
 
@@ -10,13 +11,14 @@ import sliderInterfaceContainer from "./sliderInterfaceContainer"
 
  2.2 make the arrows work to advance - rewind   done 
  
- 2.3 or by the timing function that moves the slider forward every 5 seconds     
+ 2.3 or by the timing function that moves the slider forward every 5 seconds      Done 
 
- 3. need a function that will remove a class from the active button and image and add it to the next button and image every 5 seconds if no other button is clicked in the last 5 seconds.  this function will also need to loop back to the first image and button if it is on the last image and button. if a button is clicked, the timer should reset to 5 seconds. if the left or right arrow is clicked, the timer should reset to 5 seconds. 
+ 3. if any slider nav button is clicked it resets the advance timer to 0. 
  
 */
 
 
+let pause = false;
 
 
 
@@ -42,7 +44,6 @@ export function setActive(index) {
     
     if (arrow === "slider-reverse" ){
         if (currentActiveIndex === '0'){
-            
             setActive(catListLength)     
         } else {
             setActive(currentActiveIndex -1)
@@ -56,63 +57,50 @@ export function setActive(index) {
             setActive(++currentActiveIndex)
         }
     }   
-    
-
-     // 1 I need to know what index has the active class (done), and then either increment or decrement by one based on target, and pass that as the parameter to setActive.   Done !
-     
-     // done -  2 Also the edge case where we increment past the last index, or decrement past 0.  
-
-     /*   What are my options  ---  
-     done --  Works, just trying to not hardcode the end of the array value.
-        // hardcode end of array for now 
-     on the reverse button click, check if the current index is 0, if it is, instead trying to go to -1, have it go to the last index of the array
-
-     on the forward click, if the index is at the last index of the array, go to zero.
-     
-     */
-
 
 }
 
-function sliderController(){
 
 
-const sliderNavContainer = document.querySelector('.slider-interface-nav')
-
-
-
-sliderNavContainer.addEventListener('click', (e)=> {
+function arrowClicked(e){
+    
     if(!e.target.dataset.navIndex){
         const arrow = e.target.dataset.navArrow;
-
         navArrowAction(arrow)
-        return 
     }
-  
+
     const index = e.target.dataset.navIndex 
     
     setActive(index)
+    console.log(pause, `pause in arrowClicked`)
+    return pause    
+}
 
-   
-})
+
+function sliderController(){
+    const sliderNavContainer = document.querySelector('.slider-interface-nav')
+    sliderNavContainer.addEventListener('click', (e) => (arrowClicked(e)))
 
 }
 
-// 2.3 or by the timing function that moves the slider forward every 5 seconds    
-
-export function  sliderNavAdvance() {
+export function sliderNavAdvance(paused) {
     let currentActiveIndex = document.querySelector('.active-slider').dataset.navIndex
-    console.log(currentActiveIndex)
+    // console.log(currentActiveIndex)
     if(+currentActiveIndex === 7) {
       currentActiveIndex = -1
-      
     }
     currentActiveIndex++
     setActive(currentActiveIndex)
-    setTimeout(sliderNavAdvance, "2500")
+    console.log(pause)
+    if (paused) {
+        console.log(`pause activated`)
+        setTimeout(() => {
+            sliderNavAdvance(false)
+    }, 5000); 
+    } else {
+    setTimeout(sliderNavAdvance, "1000")
     }
+}
     
-    
-
 export default sliderController
 
