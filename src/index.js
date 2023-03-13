@@ -26,10 +26,11 @@ So here's the issue. I need to pause the advance of the recursive function slide
 
 Currently the slider advances every 1 second, even if I click on the slider nav container.
 
-
 My dillema: I need to be able to get the value of the pauseRecursiveSlider variable from the sliderController function to the sliderNavAdvanceRecursive function every time there's a click event on the slider nav container.  
 
-I can't get the value of the pause variable to the sliderNavAdvanceRecursive function.  I declared the pause variable in the module scope, I know I can't export a non const variable to another module as that would not get updated after the inital import into the other module. 
+I can't get the value of the pause variable to the sliderNavAdvanceRecursive function.  I declared the pause variable in the module scope, I know I can't export a non const variable to another module as that would not get updated after the inital import into the other module. I've tried numerous things to overcome this short of looking up a solution that implements it... 
 
 Here is my repo/branch that is up to date, and I can share my screen and talk through this with anyone who can lend a hand.  I've been at this issue for several hours and it's a foundational thing that I'm missing. 
+
+https://github.com/JustWaveThings/Dynamic-User-Interface-Interactions/tree/feature_pause_advance_on_nav_click 
 */
