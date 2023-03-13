@@ -94,7 +94,7 @@ export function  sliderNavAdvance() {
     }
     currentActiveIndex++
     setActive(currentActiveIndex)
-    setTimeout(sliderNavAdvance, "2500")
+    setTimeout(sliderNavAdvance, "1000")
     }
     
     
