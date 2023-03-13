@@ -82,7 +82,7 @@ export function sliderNavAdvanceRecursive() {
     document.querySelectorAll('.slider-images-of-cats').length - 1;
   let currentActiveIndex =
     document.querySelector('.active-slider').dataset.navIndex;
-  console.log(currentActiveIndex);
+  // console.log(currentActiveIndex);
   if (+currentActiveIndex === catListLength) {
     currentActiveIndex = -1;
   }
@@ -90,11 +90,12 @@ export function sliderNavAdvanceRecursive() {
   setActive(currentActiveIndex);
 
   if (pauseRecursiveSlider) {
-    console.log('pauseRecursiveSlider is true and in the timeout block');
+    console.log(`true = paused leg of the timeout block`)
     setTimeout(() => {
       sliderNavAdvanceRecursive(false);
     }, '5000');
   } else {
+    console.log(`else leg of the timeout block`)
     setTimeout(sliderNavAdvanceRecursive, '1000');
   }
 }
