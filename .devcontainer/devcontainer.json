@@ -12,7 +12,16 @@
 	"forwardPorts": [8080],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	 "postCreateCommand": "npm install"
+	"postCreateCommand": "npm install",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"esbenp.prettier-vscode",
+				"eamodio.gitlens",
+				"GitHub.copilot"
+			]
+		}
+	}
 
 	// Configure tool-specific properties.
 	// "customizations": {},
