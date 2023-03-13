@@ -14,7 +14,7 @@ main.appendChild(sliderInterfaceContainer());
 
 
 sliderController();
-setActive(5)
+setActive(0)
 sliderNavAdvanceRecursive()
 
 

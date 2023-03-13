@@ -55,7 +55,7 @@ function navArrowAction(arrow) {
   }
 }
 
-let pauseRecursiveSlider = false;
+
 
 function sliderController() {
   // grab the slider interface container
@@ -71,13 +71,20 @@ function sliderController() {
 
     const index = e.target.dataset.navIndex;
     setActive(index);
-    pauseRecursiveSlider = true;
   });
 }
 
 // how to pass pauseRecursiveSlider to the recursive function from sliderController?
 
+let pauseRecursiveSlider = false;
+
 export function sliderNavAdvanceRecursive() {
+   // going to try to just make another event listener within this function and do it all in here... it's not the right way but it's a path to resolution. 
+  
+   
+   const pauseClickListener = document.querySelector('.slider-interface-nav')
+   pauseClickListener.addEventListener('click', () => {pauseRecursiveSlider = true});
+
   const catListLength =
     document.querySelectorAll('.slider-images-of-cats').length - 1;
   let currentActiveIndex =
@@ -90,13 +97,13 @@ export function sliderNavAdvanceRecursive() {
   setActive(currentActiveIndex);
 
   if (pauseRecursiveSlider) {
-    console.log(`true = paused leg of the timeout block`)
+    
     setTimeout(() => {
       sliderNavAdvanceRecursive(false);
-    }, '5000');
+    }, 5000);
   } else {
-    console.log(`else leg of the timeout block`)
-    setTimeout(sliderNavAdvanceRecursive, '1000');
+   
+    setTimeout(sliderNavAdvanceRecursive, 5000);
   }
 }
 
