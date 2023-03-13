@@ -174,12 +174,13 @@ li {
 
 .slider-images-of-cats {
 	display: none;
-}
-
-.slider-images-of-cats.active-image{
+  }
+  
+.slider-images-of-cats.active-image {
 	display: flex;
 	position: absolute;
-}
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.6);
+  }
 
 button {
 	background-color: var(--accent-color);
@@ -189,14 +190,15 @@ button {
 	border: none;
 	border-radius: 5rem;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.6);
-	transition: transform  350ms cubic-bezier(0, 2.47, 0.38, 0.91);
+	transition: translate 1000ms cubic-bezier(0, 2.47, 0.38, 0.91);
 }
 
 button:hover {
 	background-color: var(--highlight-color);
-	transform: scale(1.5);
+	transform: scale(2);
 }
 button.active-slider {
+	background-color: var(--text-color-light);
 	transform: scale(1.5);
 }
 
