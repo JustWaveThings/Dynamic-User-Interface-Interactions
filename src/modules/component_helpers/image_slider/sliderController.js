@@ -56,22 +56,6 @@ export function setActive(index) {
             setActive(++currentActiveIndex)
         }
     }   
-    
-
-     // 1 I need to know what index has the active class (done), and then either increment or decrement by one based on target, and pass that as the parameter to setActive.   Done !
-     
-     // done -  2 Also the edge case where we increment past the last index, or decrement past 0.  
-
-     /*   What are my options  ---  
-     done --  Works, just trying to not hardcode the end of the array value.
-        // hardcode end of array for now 
-     on the reverse button click, check if the current index is 0, if it is, instead trying to go to -1, have it go to the last index of the array
-
-     on the forward click, if the index is at the last index of the array, go to zero.
-     
-     */
-
-
 }
 
 function sliderController(){
@@ -101,9 +85,10 @@ sliderNavContainer.addEventListener('click', (e)=> {
 // 2.3 or by the timing function that moves the slider forward every 5 seconds    
 
 export function  sliderNavAdvance() {
+    const catListLength = document.querySelectorAll('.slider-images-of-cats').length-1
     let currentActiveIndex = document.querySelector('.active-slider').dataset.navIndex
     console.log(currentActiveIndex)
-    if(+currentActiveIndex === 7) {
+    if(+currentActiveIndex === catListLength) {
       currentActiveIndex = -1
       
     }
