@@ -1,5 +1,5 @@
 /* eslint-disable no-plusplus */
-import sliderInterfaceContainer from "./sliderInterfaceContainer"
+import sliderInterfaceContainer from './sliderInterfaceContainer';
 
 /* 
  1. this needs to assign event listeners using event delegation for the slider interface container buttons and the left and right arrows. We need to use the data-attributes I assigned to the buttons and images. -- done
@@ -16,89 +16,89 @@ import sliderInterfaceContainer from "./sliderInterfaceContainer"
  
 */
 
-
-
-
-
 export function setActive(index) {
-    const buttons = document.querySelectorAll('.nav-slider-position-indicator-buttons')
-    const images = document.querySelectorAll('.slider-images-of-cats')
-    buttons.forEach((button) => {
-        button.classList.remove('active-slider')
-    })
-    images.forEach((image) => {
-        image.classList.remove('active-image')
-    })
-  buttons[index].classList.toggle('active-slider')
-  images[index].classList.toggle('active-image')
+  const buttons = document.querySelectorAll(
+    '.nav-slider-position-indicator-buttons'
+  );
+  const images = document.querySelectorAll('.slider-images-of-cats');
+  buttons.forEach((button) => {
+    button.classList.remove('active-slider');
+  });
+  images.forEach((image) => {
+    image.classList.remove('active-image');
+  });
+  buttons[index].classList.toggle('active-slider');
+  images[index].classList.toggle('active-image');
+}
+
+function navArrowAction(arrow) {
+  const catListLength =
+    document.querySelectorAll('.slider-images-of-cats').length - 1;
+
+  let currentActiveIndex =
+    document.querySelector('.active-slider').dataset.navIndex;
+
+  if (arrow === 'slider-reverse') {
+    if (currentActiveIndex === '0') {
+      setActive(catListLength);
+    } else {
+      setActive(currentActiveIndex - 1);
+    }
   }
 
-  function navArrowAction(arrow){
-    
-    const catListLength = document.querySelectorAll('.slider-images-of-cats').length-1
-    
-    let currentActiveIndex = document.querySelector('.active-slider').dataset.navIndex
-    
-    
-    if (arrow === "slider-reverse" ){
-        if (currentActiveIndex === '0'){
-            
-            setActive(catListLength)     
-        } else {
-            setActive(currentActiveIndex -1)
-        }   
+  if (arrow === 'slider-forward') {
+    if (+currentActiveIndex === catListLength) {
+      setActive('0');
+    } else {
+      setActive(++currentActiveIndex);
     }
-
-    if (arrow === "slider-forward"){
-        if(+currentActiveIndex === catListLength){
-            setActive('0')
-        } else {
-            setActive(++currentActiveIndex)
-        }
-    }   
+  }
 }
 
-function sliderController(){
+let pauseRecursiveSlider = false;
 
+function sliderController() {
+  // grab the slider interface container
+  const sliderNavContainer = document.querySelector('.slider-interface-nav');
 
-const sliderNavContainer = document.querySelector('.slider-interface-nav')
-
-
-
-sliderNavContainer.addEventListener('click', (e)=> {
-    if(!e.target.dataset.navIndex){
-        const arrow = e.target.dataset.navArrow;
-
-        navArrowAction(arrow)
-        return 
+  // event delegation to handle either a click on the slider nav button or an arrow
+  sliderNavContainer.addEventListener('click', (e) => {
+    if (!e.target.dataset.navIndex) {
+      const arrow = e.target.dataset.navArrow;
+      navArrowAction(arrow);
+      return;
     }
-  
-    const index = e.target.dataset.navIndex 
-    
-    setActive(index)
 
-   
-})
-
+    const index = e.target.dataset.navIndex;
+    setActive(index);
+    pauseRecursiveSlider = true;
+  });
 }
 
-// 2.3 or by the timing function that moves the slider forward every 5 seconds    
+// how to pass pauseRecursiveSlider to the recursive function from sliderController?
 
-export function  sliderNavAdvance() {
-    const catListLength = document.querySelectorAll('.slider-images-of-cats').length-1
-    let currentActiveIndex = document.querySelector('.active-slider').dataset.navIndex
-    console.log(currentActiveIndex)
-    if(+currentActiveIndex === catListLength) {
-      currentActiveIndex = -1
-      
-    }
-    currentActiveIndex++
-    setActive(currentActiveIndex)
-    setTimeout(sliderNavAdvance, "1000")
-    }
-    
-    
+export function sliderNavAdvanceRecursive() {
+  const catListLength =
+    document.querySelectorAll('.slider-images-of-cats').length - 1;
+  let currentActiveIndex =
+    document.querySelector('.active-slider').dataset.navIndex;
+  console.log(currentActiveIndex);
+  if (+currentActiveIndex === catListLength) {
+    currentActiveIndex = -1;
+  }
+  currentActiveIndex++;
+  setActive(currentActiveIndex);
 
-export default sliderController
+  if (pauseRecursiveSlider) {
+    console.log('pauseRecursiveSlider is true and in the timeout block');
+    setTimeout(() => {
+      sliderNavAdvanceRecursive(false);
+    }, '5000');
+  } else {
+    setTimeout(sliderNavAdvanceRecursive, '1000');
+  }
+}
 
-// this version as of 3 / 13 / 23 the autoadvance and the nav forward back buttons work... 
+export default sliderController;
+
+// this version as of 3 / 13 / 23 the autoadvance and the nav forward back buttons work...
